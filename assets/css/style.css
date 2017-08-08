@@ -1,7 +1,4 @@
-/*main content area************************/
-.z-depth-5 {
-    padding: 20px;
-}
+/*Input area************************************/
 /* label color */
    .input-field label {
      color: #000;
@@ -29,3 +26,8 @@
    .input-field .prefix.active {
      color: #000;
    }
+   /*main content area************************/
+.z-depth-5 {
+    padding: 20px;
+    margin-bottom: 20px;
+}
