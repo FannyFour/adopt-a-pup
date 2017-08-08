@@ -2,6 +2,9 @@
 /*body {
   background-color: black;
 }*/
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
 /*Input area************************************/
 /* label color */
    .input-field label {
@@ -34,4 +37,7 @@
 .z-depth-5 {
     padding: 20px;
     margin-bottom: 20px;
+}
+img.responsive-image.left {
+    padding: 15px;
 }
