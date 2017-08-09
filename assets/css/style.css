@@ -43,11 +43,11 @@ h1 {
     padding: 20px;
     margin-bottom: 20px;
 }
-img.responsive-image.left {
+img.responsive-img.left {
     padding: 15px;
 }
 .data-input {
-  border: 2px solid #757575;
+  border: 2px solid #bdbdbd;
   margin: 0px;
 }
 .input-row {
