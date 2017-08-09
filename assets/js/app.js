@@ -44,6 +44,10 @@ var queryURL = "https://dog.ceo/api/breeds/list/all"
       
   }
 
+  //Calling the function to test
+
+  video(0);
+
 
 
 
