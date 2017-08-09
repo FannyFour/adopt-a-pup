@@ -6,6 +6,10 @@ h1, h2, h3, h4, h5 {
   font-family: 'Russo One', sans-serif;
   font-weight: 600;
 }
+h1 {
+  margin: 0px;
+  padding: 20px;
+}
 /*Input area************************************/
 /* label color */
    .input-field label {
