@@ -37,6 +37,17 @@ var queryURL = "https://dog.ceo/api/breeds/list/all"
       }
     });
 
+    // Create a function that will call the vides and the parameter is the index of the array
+      function video(breed) {
+      var htmlVid = breedVids[breed];
+      $("#breedVideos").append(htmlVid);
+      
+  }
+
+
+
+
+
     //code that initializes the dropdown in the html
 
        $(document).ready(function() {
