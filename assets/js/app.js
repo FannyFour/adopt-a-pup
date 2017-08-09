@@ -32,14 +32,17 @@ $.ajax({
         //creating a new dropdown choice adding the attribute of a value that will
         //coincide with the video array
         var newChoice = $("<option>").attr("value", i);
+        // Adding a class
+        newChoice.addClass("breedChoice");
         //adding the name of the breed to the html that will be in the dropdown
         newChoice.html(dogName);
         //appending it to the div
         breedDiv.append(newChoice);
 
-        $(document).ready(function () {
-    $('select').material_select();
-});
+         $(document).ready(function() {
+            $('select').material_select();
+  });
+        
 
     }
 });
@@ -47,16 +50,22 @@ $.ajax({
 // Create a function that will call the vides and the parameter is the index of the array
 function video(breed) {
     var htmlVid = breedVids[breed];
-    $("#breedVideos").append(htmlVid);
+    $("#breedVideos").html(htmlVid);
 
 }
 
-//Calling the function to test
 
-video(0);
 
 //code that initializes the dropdown in the html
 
 $(document).ready(function () {
     $('select').material_select();
+});
+
+//This code will take the value from the breed based on selection
+$("#breedNames").on("change", function() {
+    
+    var breedVal = $(this).val();
+    console.log(breedVal);
+    video(breedVal);
 });
