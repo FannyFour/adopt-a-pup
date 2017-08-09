@@ -22,10 +22,16 @@ var queryURL = "https://dog.ceo/api/breeds/list/all"
       console.log(data[3]);
       //Creating for loop that will populat the dropdow menu
       for (var i = 0; i < data.length; i++) {
+          //jquery of the div that holds the dropdown
            var breedDiv = $("#breedNames");
+           //selcting the dog name out the array that we created
            var dogName = data[i];
+           //creating a new dropdown choice adding the attribute of a value that will
+           //coincide with the video array
            var newChoice = $("<option>").attr("value", i);
+           //adding the name of the breed to the html that will be in the dropdown
            newChoice.html(dogName);
+           //appending it to the div
            breedDiv.append(newChoice);
           
       }
