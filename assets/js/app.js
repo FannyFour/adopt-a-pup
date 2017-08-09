@@ -36,3 +36,9 @@ var queryURL = "https://dog.ceo/api/breeds/list/all"
           
       }
     });
+
+    //code that initializes the dropdown in the html
+
+       $(document).ready(function() {
+    $('select').material_select();
+  });
