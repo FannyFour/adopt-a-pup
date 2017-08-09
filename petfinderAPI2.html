@@ -32,19 +32,33 @@ img {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
-  var zip = 27606;
+  
 
-    $(document).ready(function(){
+$("#search").on("click", function(event) {
+  // This line allows us to take advantage of the HTML "submit" property
+  // This way we can hit enter on the keyboard and it registers the search
+  // (in addition to clicks).
+  event.preventDefault();
+
+  // Grabbing text the user typed into the search input
+  var zip = $("#zip").val().trim();
+  //var zip = 27608;
+  
+  var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
+
+  // Then we will pass the final queryURL and the number of results to
+  // include to the runQuery function
+  runQuery(queryURL);
+
+  
+
+    function runQuery(queryURL){
 
       //http://api.petfinder.com/subsystem.method
 
       //http://api.petfinder.com/my.method?key=12345&arg1=foo
 
-      var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
-
-      
-
-      $.ajax({
+        $.ajax({
           url: queryURL,
           method: "GET",
           dataType: "json",
@@ -79,17 +93,13 @@ img {
           var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
           infoDiv.append(pDescription);
 
-          
-
           $("#petfinderInfo").prepend(infoDiv);
+          
+          $("#zip").val("");
         });
-
-    });
-
-
+    };
+});
 
   </script>
-
-
 </body>
 </html>
