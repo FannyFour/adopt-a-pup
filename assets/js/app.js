@@ -71,3 +71,83 @@ $("#breedNames").on("change", function() {
     video(breedVal);
 });
 
+//petApiCodeJon
+
+$("#search").on("click", function(event) {
+  // This line allows us to take advantage of the HTML "submit" property
+  // This way we can hit enter on the keyboard and it registers the search
+  // (in addition to clicks).
+  event.preventDefault();
+
+  //clear the div
+ 
+$("#petfinderInfo").empty();
+
+
+  // Grabbing text the user typed into the search input
+  var zip = $("#zip").val().trim();
+  //var zip = 27608;
+  
+  var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
+
+  var divCounter = 0;
+
+  // Then we will pass the final queryURL and the number of results to
+  // include to the runQuery function
+  runQuery(queryURL);
+
+  
+
+    function runQuery(queryURL){
+
+      //http://api.petfinder.com/subsystem.method
+
+      //http://api.petfinder.com/my.method?key=12345&arg1=foo
+
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+          dataType: "json",
+          //data: {}
+        }).done(function(response) {
+
+          console.log(response);
+
+          for (var i = 0; i < 5; i++) {
+
+            divCounter++;
+
+            var infoDiv = $("<div class='info'>");
+            infoDiv.attr("id", "divNumber-" + divCounter);
+            
+            var photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+            var pPhoto = $("<p>").html("<img src=" + photo +">");
+            infoDiv.append(pPhoto);
+
+            var name = response.petfinder.pets.pet[i].name.$t;
+            var pName = $("<p>").html("<strong>Name: </strong>" + name);
+            infoDiv.append(pName);
+
+            // var breed = response.petfinder.pets.pet[i].breeds.breed[0].$t;
+            // var pBreed = $("<p>").html("<strong>Breed: </strong>" + breed);
+            // infoDiv.append(pBreed);
+
+            var city = response.petfinder.pets.pet[i].contact.city.$t;
+            var pCity = $("<p>").html("<strong>City: </strong>" + city);
+            infoDiv.append(pCity);
+
+            var email = response.petfinder.pets.pet[i].contact.email.$t;
+            var pEmail = $("<p>").html("<strong>Email: </strong>" + email);
+            infoDiv.append(pEmail);
+
+            var description = response.petfinder.pets.pet[i].description.$t;
+            var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
+            infoDiv.append(pDescription);
+
+            $("#petfinderInfo").append(infoDiv);
+
+            $("#zip").val("");
+          }
+        });
+    };
+});
