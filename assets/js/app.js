@@ -151,3 +151,33 @@ $("#petfinderInfo").empty();
         });
     };
 });
+//This is the firebase that stores the email
+var config = {
+    apiKey: "AIzaSyCsOqg2fr3ZLAyTvCeYFtSN1eT4h9P3Z6o",
+    authDomain: "emaillistadopt.firebaseapp.com",
+    databaseURL: "https://emaillistadopt.firebaseio.com",
+    projectId: "emaillistadopt",
+    storageBucket: "",
+    messagingSenderId: "1034349718807"
+  };
+  firebase.initializeApp(config);
+
+  var databaseEmail = firebase.database();
+//This is the modal function for the email
+  $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+
+  $("#subscribe").on("click", function(event){
+    
+      var emailAddress = $("#email").val().trim();
+      var name = $("#userName").val().trim();
+      
+      databaseEmail.ref().push({
+          email: emailAddress,
+          name: name
+      })
+      $('#modal1').modal('close');
+  });
+      
