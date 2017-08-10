@@ -26,7 +26,8 @@
                     <li><a class="btn waves-effect waves-light cyan lighten-2 black-text z-depth-1" type="submit" id="search">Search</a></li>
                 </ul>
                 <ul class="right hide-on-small-only">
-                    <li><a class="waves-effect waves-light btn">Breed Info</a></li>
+                    <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Get Updates!</a></li>
+                    <li><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Breed Info</a></li>
                     <li><a class="waves-effect waves-light btn">Chat</a></li>
                 </ul>
             </div>
@@ -44,7 +45,9 @@
 
         </div>
     </div>
-    <div class="container col s12 m12 l12" id="main">
+      <div id="modal2" class="modal">
+    <div class="modal-content">
+      <div class="container" id="main">
         <div class="flow-text">
             <div class="input-field col s12">
                 <select id="breedNames">
@@ -56,6 +59,23 @@
             </div>
         </div>
     </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+    <!--<div class="container" id="main">
+        <div class="flow-text">
+            <div class="input-field col s12">
+                <select id="breedNames">
+      				<option value="" disabled selected class="breedChoice">Breed Choice</option>
+      			</select>
+                <label>Learn About the Breed</label>
+            </div>
+            <div class="container" id="breedVideos">
+            </div>
+        </div>
+    </div>-->
     <div class="container col s12 m12 l12" id="main">
         <div class="z-depth-5 flow-text">
             <ul>
@@ -76,8 +96,6 @@
                 maiores vel eligendi soluta corporis libero ullam facilis animi error molestias. Velit, delectus repellendus.</p>
         </div>
     </div>
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
