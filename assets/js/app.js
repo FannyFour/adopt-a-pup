@@ -79,6 +79,11 @@ $("#search").on("click", function(event) {
   // (in addition to clicks).
   event.preventDefault();
 
+  //clear the div
+ 
+$("#petfinderInfo").empty();
+
+
   // Grabbing text the user typed into the search input
   var zip = $("#zip").val().trim();
   //var zip = 27608;
