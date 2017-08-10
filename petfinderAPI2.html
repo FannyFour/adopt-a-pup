@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>petfinder 2</title>
+
+  <!-- Bootswatch Styling for Improving the Aesthetics -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <style>
+img {
+    float: left;
+    margin: 10px;
+}
+</style>
+
+</head>
+<body>
+  
+  <div class="form-group">
+    <label for="search">Enter Zip Code:</label>
+    <input type="text" class="form-control" id="zip">
+  </div>
+
+  <button type="submit" class="btn btn-default" id="search"><i class="fa fa-search"></i> Search</button>
+
+  <div id="petfinderInfo"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+  
+
+$("#search").on("click", function(event) {
+  // This line allows us to take advantage of the HTML "submit" property
+  // This way we can hit enter on the keyboard and it registers the search
+  // (in addition to clicks).
+  event.preventDefault();
+
+  // Grabbing text the user typed into the search input
+  var zip = $("#zip").val().trim();
+  //var zip = 27608;
+  
+  var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
+
+  var divCounter = 0;
+
+  // Then we will pass the final queryURL and the number of results to
+  // include to the runQuery function
+  runQuery(queryURL);
+
+  
+
+    function runQuery(queryURL){
+
+      //http://api.petfinder.com/subsystem.method
+
+      //http://api.petfinder.com/my.method?key=12345&arg1=foo
+
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+          dataType: "json",
+          //data: {}
+        }).done(function(response) {
+
+          console.log(response);
+
+          for (var i = 0; i < 5; i++) {
+
+            divCounter++;
+
+            var infoDiv = $("<div class='info'>");
+            infoDiv.attr("id", "divNumber-" + divCounter);
+            
+            var photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+            var pPhoto = $("<p>").html("<img src=" + photo +">");
+            infoDiv.append(pPhoto);
+
+            var name = response.petfinder.pets.pet[i].name.$t;
+            var pName = $("<p>").html("<strong>Name: </strong>" + name);
+            infoDiv.append(pName);
+
+            // var breed = response.petfinder.pets.pet[i].breeds.breed[0].$t;
+            // var pBreed = $("<p>").html("<strong>Breed: </strong>" + breed);
+            // infoDiv.append(pBreed);
+
+            var city = response.petfinder.pets.pet[i].contact.city.$t;
+            var pCity = $("<p>").html("<strong>City: </strong>" + city);
+            infoDiv.append(pCity);
+
+            var email = response.petfinder.pets.pet[i].contact.email.$t;
+            var pEmail = $("<p>").html("<strong>Email: </strong>" + email);
+            infoDiv.append(pEmail);
+
+            var description = response.petfinder.pets.pet[i].description.$t;
+            var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
+            infoDiv.append(pDescription);
+
+            $("#petfinderInfo").append(infoDiv);
+
+            $("#zip").val("");
+          }
+        });
+    };
+});
+
+  </script>
+</body>
+</html>
