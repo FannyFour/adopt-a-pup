@@ -46,6 +46,8 @@ $("#search").on("click", function(event) {
   
   var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
 
+  var divCounter = 0;
+
   // Then we will pass the final queryURL and the number of results to
   // include to the runQuery function
   runQuery(queryURL);
@@ -67,35 +69,41 @@ $("#search").on("click", function(event) {
 
           console.log(response);
 
-          var infoDiv = $("<div class='info'>");
-          
-          var photo = response.petfinder.pets.pet[0].media.photos.photo[3].$t;
-          var pPhoto = $("<p>").html("<img src=" + photo +">");
-          infoDiv.append(pPhoto);
+          for (var i = 0; i < 5; i++) {
 
-          var name = response.petfinder.pets.pet[0].name.$t;
-          var pName = $("<p>").html("<strong>Name: </strong>" + name);
-          infoDiv.append(pName);
+            divCounter++;
 
-          var breed = response.petfinder.pets.pet[0].breeds.breed[0].$t;
-          var pBreed = $("<p>").html("<strong>Breed: </strong>" + breed);
-          infoDiv.append(pBreed);
+            var infoDiv = $("<div class='info'>");
+            infoDiv.attr("id", "divNumber-" + divCounter);
+            
+            var photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+            var pPhoto = $("<p>").html("<img src=" + photo +">");
+            infoDiv.append(pPhoto);
 
-          var city = response.petfinder.pets.pet[0].contact.city.$t;
-          var pCity = $("<p>").html("<strong>City: </strong>" + city);
-          infoDiv.append(pCity);
+            var name = response.petfinder.pets.pet[i].name.$t;
+            var pName = $("<p>").html("<strong>Name: </strong>" + name);
+            infoDiv.append(pName);
 
-          var email = response.petfinder.pets.pet[0].contact.email.$t;
-          var pEmail = $("<p>").html("<strong>Email: </strong>" + email);
-          infoDiv.append(pEmail);
+            // var breed = response.petfinder.pets.pet[i].breeds.breed[0].$t;
+            // var pBreed = $("<p>").html("<strong>Breed: </strong>" + breed);
+            // infoDiv.append(pBreed);
 
-          var description = response.petfinder.pets.pet[0].description.$t;
-          var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
-          infoDiv.append(pDescription);
+            var city = response.petfinder.pets.pet[i].contact.city.$t;
+            var pCity = $("<p>").html("<strong>City: </strong>" + city);
+            infoDiv.append(pCity);
 
-          $("#petfinderInfo").prepend(infoDiv);
-          
-          $("#zip").val("");
+            var email = response.petfinder.pets.pet[i].contact.email.$t;
+            var pEmail = $("<p>").html("<strong>Email: </strong>" + email);
+            infoDiv.append(pEmail);
+
+            var description = response.petfinder.pets.pet[i].description.$t;
+            var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
+            infoDiv.append(pDescription);
+
+            $("#petfinderInfo").append(infoDiv);
+
+            $("#zip").val("");
+          }
         });
     };
 });
