@@ -88,7 +88,7 @@ $("#petfinderInfo").empty();
   var zip = $("#zip").val().trim();
   //var zip = 27608;
   
-  var queryURL = 'http://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
+  var queryURL = 'https://api.petfinder.com/pet.find?key=2aafed70ee17e42be9c99843a588487b&animal=dog&location=' + zip + '&format=json&callback=?';
 
   var divCounter = 0;
 
