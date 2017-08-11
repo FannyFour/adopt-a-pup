@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="chatApp">
 <head>
-	<title>Firebase Chat</title>
-	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-</head>
-<body>
-	<input id="username" type="text" placeholder="Name"></body><br/>
-	<input id="text" type="text" placeholder="Message"><br/>
-	<button id="post">Post</button><br/>
-	<div id="results"></div>
-
-<script type="text/javascript">
-	var config = {
+    <meta charset="UTF-8">
+    <title>Adopt-A-Pup Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>
+    // This will be generated in the firebase console
+    var config = {
     apiKey: "AIzaSyAGZY1pBy37wBlm_1mNpsqy4Gmi2qMpf3c",
     authDomain: "adopt-a-pup.firebaseapp.com",
     databaseURL: "https://adopt-a-pup.firebaseio.com",
     projectId: "adopt-a-pup",
-    storageBucket: "",
+    storageBucket: "adopt-a-pup.appspot.com",
     messagingSenderId: "961751920365"
   };
-
-  firebase.initializeApp(config);
-
-  var database = firebase.database();
-
-//initial values
-var usernameInput = document.querySelector('#username');
-var textInput = document.querySelector('#text');
-var postButton = document.querySelector('#post');
-
-postButton.addEventListener("click", function(){
-	var msgUser = usernameInput.value;
-	var msgText = textInput.value;
-	database.push({userName:msgUser + "says" + text:msgText});
-	textInput.value = "";
-});
-</script>
+    firebase.initializeApp(config);
+    </script>
+    
+    <script src="app.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ChatController">
+    <br>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Firebase Puppy Chat</div>
+            <div class="panel-body">
+                <p ng-repeat="m in messages">{{m.message}} - {{m.date | date:'medium'}}</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Message here..." ng-model="messageText">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
