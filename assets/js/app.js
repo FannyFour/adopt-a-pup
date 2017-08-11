@@ -168,7 +168,7 @@ var config = {
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
-
+//This is the onclick that will save the uses and email in the modal
   $("#subscribe").on("click", function(event){
     
       var emailAddress = $("#email").val().trim();
@@ -180,4 +180,9 @@ var config = {
       })
       $('#modal1').modal('close');
   });
-      
+
+//Initialize the js the creates the side navbar in mobile
+
+$( document ).ready(function(){
+    $(".button-collapse").sideNav();
+})
