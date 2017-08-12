@@ -56,3 +56,10 @@ img.responsive-img.left {
 img.responsive-img.center.hide-on-med-and-up {
     padding: 10px 0px;
 }
+h6 {
+  font-family: 'Arimo', sans-serif;
+
+}
+.userClass {
+  font-weight: bold;
+}

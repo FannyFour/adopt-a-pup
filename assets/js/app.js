@@ -214,7 +214,7 @@ $( document ).ready(function(){
 
         database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(snapshot){
       var sv = snapshot.val();
-      $("#name-display").prepend(sv.name + ": " + sv.comment + "<br><br>");
+      $("#name-display").prepend("<span class='userClass'>" + sv.name + ": " + "</span>" + sv.comment + "<br><br>");
       // $("#email-display").append(sv.email);
       // $("#comment-display").append(sv.comment);
       console.log(sv);
