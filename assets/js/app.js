@@ -5,7 +5,31 @@ var breedVids = ['<iframe width="360" height="203" src="https://www.youtube.com/
     '<iframe width="360" height="203" src="https://www.youtube.com/embed/1yWd6_gF5OQ" frameborder="0" allowfullscreen></iframe>',
     '<iframe width="360" height="203" src="https://www.youtube.com/embed/BeSHBdmlv1g" frameborder="0" allowfullscreen></iframe>',
     '<iframe width="360" height="203" src="https://www.youtube.com/embed/nNB99tp2vO8" frameborder="0" allowfullscreen></iframe>',
-    '<iframe width="360" height="203" src="https://www.youtube.com/embed/tufBXaoUNM8" frameborder="0" allowfullscreen></iframe>'
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/tufBXaoUNM8" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/si562RMZWOQ?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/8VsiqOwhD_0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/J831a2X9uT4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/GxeUqyim-2g?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/59ZjA7TSNaQ?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/fLRWPpTnF3I?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/cYvN_lRldH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/yYwAJrAdUbY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/onquT6s3X-s?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/W7bCll0DT-c?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/dHX2xul3WEk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/4LcctY44cj4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/R3J5JLy-Unw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/wQT-zTYaT2E?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/bUurb0_5cXU?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/Tdxqr20jS68?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/n7cXZ_HXz4A?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/XXzZwEauNng?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/89TCWc7eDvY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/xJlyQaMzTE4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/aAOYe3SjMYE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/e00BzdF5LYA?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+
+
 ]
 
 //Create an empty array that will hold dog breed that are returned from an API call
