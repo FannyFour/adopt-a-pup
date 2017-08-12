@@ -150,6 +150,7 @@ $("#breedNames").on("change", function() {
 });
 
 //petApiCodeJon
+//JS Code to reset button for results
 // $("#rmSearch").on("click", function(){
 //   $("#thisOne").empty();
 //   $("#thisOne").addClass("z-depth-5 flow-text");
