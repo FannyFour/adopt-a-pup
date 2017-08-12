@@ -1,24 +1,25 @@
-	var config = {
+    var config = {
     apiKey: "AIzaSyAGZY1pBy37wBlm_1mNpsqy4Gmi2qMpf3c",
     authDomain: "adopt-a-pup.firebaseapp.com",
     databaseURL: "https://adopt-a-pup.firebaseio.com",
     projectId: "adopt-a-pup",
-    storageBucket: "",
+    storageBucket: "adopt-a-pup.appspot.com",
     messagingSenderId: "961751920365"
   };
+    firebase.initializeApp(config);
 
-  firebase.initializeApp(config);
 
-  var database = firebase.database();
+var app = angular.module('chatApp', ['firebase']);
 
-//initial values
-var usernameInput = document.querySelector('#username');
-var textInput = document.querySelector('#text');
-var postButton = document.querySelector('#post');
+app.controller('ChatController', function($scope, $firebaseArray) {
+    var ref = firebase.database().ref().child('messages');
+    $scope.messages = $firebaseArray(ref);
 
-postButton.addEventListener("click", function(){
-	var msgUser = usernameInput.value;
-	var msgText = textInput.value;
-	database.push({userName:msgUser + "says" + text:msgText});
-	textInput.value = "";
-});
+    $scope.send = function() {
+        $scope.messages.$add({
+            message: $scope.messageText,
+            date: Date.now()
+        })
+    }
+
+})
