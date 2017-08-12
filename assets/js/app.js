@@ -3,7 +3,9 @@
 var breedVids = ['<iframe width="360" height="203" src="https://www.youtube.com/embed/ohnkNMFSnAc" frameborder="0" allowfullscreen></iframe>',
     '<iframe width="360" height="203" src="https://www.youtube.com/embed/d3IwYck7zgo" frameborder="0" allowfullscreen></iframe>',
     '<iframe width="360" height="203" src="https://www.youtube.com/embed/1yWd6_gF5OQ" frameborder="0" allowfullscreen></iframe>',
-    '<iframe width="360" height="203" src="https://www.youtube.com/embed/BeSHBdmlv1g" frameborder="0" allowfullscreen></iframe>'
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/BeSHBdmlv1g" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/nNB99tp2vO8" frameborder="0" allowfullscreen></iframe>',
+    '<iframe width="360" height="203" src="https://www.youtube.com/embed/tufBXaoUNM8" frameborder="0" allowfullscreen></iframe>'
 ]
 
 //Create an empty array that will hold dog breed that are returned from an API call
@@ -223,12 +225,12 @@ $("#search").on("click", function(event) {
 });
 //This is the firebase that stores the email
 var config = {
-    apiKey: "AIzaSyCsOqg2fr3ZLAyTvCeYFtSN1eT4h9P3Z6o",
-    authDomain: "emaillistadopt.firebaseapp.com",
-    databaseURL: "https://emaillistadopt.firebaseio.com",
-    projectId: "emaillistadopt",
-    storageBucket: "",
-    messagingSenderId: "1034349718807"
+    apiKey: "AIzaSyAGZY1pBy37wBlm_1mNpsqy4Gmi2qMpf3c",
+    authDomain: "adopt-a-pup.firebaseapp.com",
+    databaseURL: "https://adopt-a-pup.firebaseio.com",
+    projectId: "adopt-a-pup",
+    storageBucket: "adopt-a-pup.appspot.com",
+    messagingSenderId: "961751920365"
   };
   firebase.initializeApp(config);
 
@@ -244,7 +246,7 @@ var config = {
       var emailAddress = $("#email").val().trim();
       var name = $("#userName").val().trim();
       
-      databaseEmail.ref().push({
+      databaseEmail.ref("emailList").push({
           email: emailAddress,
           name: name
       })
@@ -256,3 +258,35 @@ var config = {
 $( document ).ready(function(){
     $(".button-collapse").sideNav();
 })
+
+// Create a variable to reference the database
+    var database = firebase.database();
+    // Initial Values
+    var name = "";
+    // var email = "";
+    var comment = "";
+    // Capture Button Click
+    $("#add-user").on("click", function() {
+      // Don't refresh the page!
+      event.preventDefault();
+      // YOUR TASK!!!
+      // Code in the logic for storing and retrieving the most recent user.
+      // Don't forget to provide initial data to your Firebase database.
+      name = $("#name-input").val().trim();
+      // email = $("#email-input").val().trim();
+      comment = $("#comment-input").val().trim();
+      database.ref().push({
+        name: name,
+        // email: email,
+        comment: comment
+      });
+    });
+
+        database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(snapshot){
+      var sv = snapshot.val();
+      $("#name-display").prepend("<span class='userClass'>" + sv.name + ": " + "</span>" + sv.comment + "<br><br>");
+      // $("#email-display").append(sv.email);
+      // $("#comment-display").append(sv.comment);
+      console.log(sv);
+    });
+
