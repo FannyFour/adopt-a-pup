@@ -150,11 +150,11 @@ $("#breedNames").on("change", function() {
 });
 
 //petApiCodeJon
-$("#rmSearch").on("click", function(){
-  $("#thisOne").empty();
-  $("#thisOne").addClass("z-depth-5 flow-text");
-  $("#thisOne").text("You removed the search results!");
-});
+// $("#rmSearch").on("click", function(){
+//   $("#thisOne").empty();
+//   $("#thisOne").addClass("z-depth-5 flow-text");
+//   $("#thisOne").text("You removed the search results!");
+// });
 
 
 $("#search").on("click", function(event) {
