@@ -174,7 +174,7 @@ var config = {
       var emailAddress = $("#email").val().trim();
       var name = $("#userName").val().trim();
       
-      databaseEmail.ref().push({
+      databaseEmail.ref("emailList").push({
           email: emailAddress,
           name: name
       })
