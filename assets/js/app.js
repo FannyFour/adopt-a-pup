@@ -186,3 +186,4 @@ var config = {
 $( document ).ready(function(){
     $(".button-collapse").sideNav();
 })
+
