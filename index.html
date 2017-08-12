@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <!--<link rel="icon" href="data:;base64,iVBORw0KGgo=">-->
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 </head>
 
 <body>
@@ -27,6 +27,9 @@
                 </form>
                 <ul class="left ">
                     <li><a class="btn waves-effect waves-light z-depth-1" type="submit" id="search">Search</a></li>
+                </ul>
+                <ul class="left ">
+                    <li><a class="btn waves-effect waves-light z-depth-1" type="submit" id="rmSearch">Remove Search Results</a></li>
                 </ul>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
@@ -47,8 +50,9 @@
         <h1 class="hide-on-small-only">Adopt a Pup</h1>
     </div>
     <div class="container col s12 m12 l12" id="main">
-        <div class="z-depth-5 flow-text">
+        <div id="thisOne" class="z-depth-5 flow-text">
             <div id="petfinderInfo">
+
                 <img class="responsive-img left" src="assets/images/pawsm.png" alt="">
                 <p class="flow-text">
                     Welcome to Adopt a Pup web app. This app's purpose is to help assist in finding a local dog for adoption. Enter your zip code and then click "search" to find a dog near you that needs a "fur ever home." 
@@ -62,6 +66,7 @@
                 <p class="flow-text">
                     Click on the chat button to chat with other users who share interest in adopting a dog. 
                 </p>
+
             </div>
         </div>
     </div>
@@ -88,22 +93,7 @@
 
     <div class="container col s12 m12 l12" id="main">
         <div class="z-depth-5 flow-text">
-            <ul>
-                <li>Location : Friendly's Animal Rescue</li>
-                <li>Breed : Hound/mix</li>
-                <li>Size : Medium/53 lbs</li>
-                <li>Gender : male</li>
-            </ul>
-            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, corrupti, porro! Libero tempore doloremque
-                obcaecati natus consectetur vel nulla, molestias officia voluptatem, vero aperiam, sint suscipit doloribus
-                asperiores provident? Dolore.
-            </P>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, quam provident obcaecati ipsam cum placeat
-                soluta, natus fuga deleniti. Adipisci nulla iure necessitatibus repellendus quisquam reprehenderit perspiciatis,
-                minima unde, rerum?
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sunt culpa est voluptas, ea, dolore nihil,
-                maiores vel eligendi soluta corporis libero ullam facilis animi error molestias. Velit, delectus repellendus.</p>
+            <p>Chat box might go here?</p>
         </div>
     </div>
     <!-- Modal Structure  for the email-->
