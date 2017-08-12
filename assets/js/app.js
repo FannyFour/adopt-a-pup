@@ -210,9 +210,9 @@ $( document ).ready(function(){
       });
     });
 
-        database.ref().orderByChild("dateAdded").limitToLast(5).on("child_added", function(snapshot){
+        database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(snapshot){
       var sv = snapshot.val();
-      $("#name-display").append(sv.name + ": " + sv.comment + "<br><br>");
+      $("#name-display").prepend(sv.name + ": " + sv.comment + "<br><br>");
       // $("#email-display").append(sv.email);
       // $("#comment-display").append(sv.comment);
       console.log(sv);
