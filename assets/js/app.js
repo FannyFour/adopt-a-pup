@@ -72,6 +72,12 @@ $("#breedNames").on("change", function() {
 });
 
 //petApiCodeJon
+$("#rmSearch").on("click", function(){
+  $("#thisOne").empty();
+  $("#thisOne").addClass("z-depth-5 flow-text");
+  $("#thisOne").text("You removed the search results!");
+});
+
 
 $("#search").on("click", function(event) {
   // This line allows us to take advantage of the HTML "submit" property
@@ -81,8 +87,11 @@ $("#search").on("click", function(event) {
 
   //clear the div
  
-$("#petfinderInfo").empty();
+  $("#petfinderInfo").empty();
 
+  //remove shadow from containing div
+
+  $("#thisOne").removeClass("z-depth-5 flow-text");
 
   // Grabbing text the user typed into the search input
   var zip = $("#zip").val().trim();
@@ -114,17 +123,49 @@ $("#petfinderInfo").empty();
           console.log(response);
 
           for (var i = 0; i < 5; i++) {
+          //   var defaults = {
+          //     email: {
+          //       $t: ""
+          //     },
+          //     city: {
+          //       $t: ""
+          //     }
+          //   };
+
+            // var contact = Object.assign({}, defaults, response.petfinder.pets.pet[i].contact)
 
             divCounter++;
 
             var infoDiv = $("<div class='info'>");
             infoDiv.attr("id", "divNumber-" + divCounter);
+            infoDiv.addClass("z-depth-5 flow-text");
             
-            var photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+            //Varifying a proper photo path in the returned object
+            var photo;
+            if (!response.petfinder.pets.pet[i].media ||
+                !response.petfinder.pets.pet[i].media.photos ||
+                !response.petfinder.pets.pet[i].media.photos.photo ||
+                response.petfinder.pets.pet[i].media.photos.photo.length < 4 ||
+                !response.petfinder.pets.pet[i].media.photos.photo[3].$t){
+              photo = "https://i.pinimg.com/736x/48/cf/14/48cf14d08ceea5d4d3606a248303bdb6--how-to-draw-a-dog-face-drawing-stuff.jpg"
+            } 
+            else {
+              photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;  
+            }
+            
             var pPhoto = $("<p>").html("<img src=" + photo +">");
             infoDiv.append(pPhoto);
 
-            var name = response.petfinder.pets.pet[i].name.$t;
+            //Varifying a proper name path in the returned object
+            var name;
+            if (!response.petfinder.pets.pet[i].name ||
+                !response.petfinder.pets.pet[i].name.$t){
+              name = "No name available"
+            } 
+            else {
+              name = response.petfinder.pets.pet[i].name.$t;
+            }
+
             var pName = $("<p>").html("<strong>Name: </strong>" + name);
             infoDiv.append(pName);
 
@@ -132,22 +173,51 @@ $("#petfinderInfo").empty();
             // var pBreed = $("<p>").html("<strong>Breed: </strong>" + breed);
             // infoDiv.append(pBreed);
 
-            var city = response.petfinder.pets.pet[i].contact.city.$t;
+            //Varifying a proper city path in the returned object
+            var city;
+            if (!response.petfinder.pets.pet[i].contact ||
+                ! response.petfinder.pets.pet[i].contact.city ||
+                !response.petfinder.pets.pet[i].contact.city.$t){
+              city = "No City available"
+            }
+            else {
+              city = response.petfinder.pets.pet[i].contact.city.$t;
+            }
+            
             var pCity = $("<p>").html("<strong>City: </strong>" + city);
             infoDiv.append(pCity);
 
-            var email = response.petfinder.pets.pet[i].contact.email.$t;
+            //Varifying a proper email path in the returned object
+            var email;
+            if (!response.petfinder.pets.pet[i].contact ||
+                !response.petfinder.pets.pet[i].contact.email ||
+                !response.petfinder.pets.pet[i].contact.email.$t){
+              email = "No email available"
+            }
+            else {
+              email = response.petfinder.pets.pet[i].contact.email.$t;
+            }
             var pEmail = $("<p>").html("<strong>Email: </strong>" + email);
             infoDiv.append(pEmail);
 
-            var description = response.petfinder.pets.pet[i].description.$t;
+
+            //Varifying a proper description path in the returned object
+            var description;
+            if (!response.petfinder.pets.pet[i].description ||
+                !response.petfinder.pets.pet[i].description.$t){
+              description = "No description available"
+            }else {
+              description = response.petfinder.pets.pet[i].description.$t;
+            }
+            
             var pDescription = $("<p>").html("<strong>Description: </strong>" + description);
             infoDiv.append(pDescription);
 
             $("#petfinderInfo").append(infoDiv);
 
             $("#zip").val("");
-          }
+
+           }
         });
     };
 });
