@@ -255,7 +255,7 @@ function petFinder() {
               photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;  
             }
             
-            var pPhoto = $("<p>").html("<img src=" + photo +">");
+            var pPhoto = $("<p>").html("<img class='pet-image' src=" + photo +">");
             infoDiv.append(pPhoto);
 
             //Varifying a proper name path in the returned object
