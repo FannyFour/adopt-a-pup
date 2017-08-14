@@ -161,13 +161,13 @@ $("#breedNames").on("change", function() {
 //this function will add the more button
 //<a class="btn waves-effect waves-light z-depth-1" type="submit" id="more">More</a>
 function addMoreButton() {
-  var a = $("<a id='more'>"); 
+  var a = $("<a>"); 
 
-  a.addClass("btn waves-effect waves-light z-depth-1");
+  a.addClass("btn waves-effect waves-light z-depth-1 moreButtonClick");
 
   a.attr("type", "submit");
 
-  //a.attr("id", "more");
+  a.attr("id", "more");
 
   a.text("More")
 
@@ -474,6 +474,7 @@ function petFinderMore() {
 $("#more").on("click", function(event) {
   //increases the k value by 5 giving 5 more results
   k = (k+ 5);
+  console.log("button works")
   petFinderMore();
 });
 
