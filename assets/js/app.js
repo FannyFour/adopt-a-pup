@@ -334,6 +334,9 @@ function petFinderMore() {
   // (in addition to clicks).
   event.preventDefault();
 
+  //increment k by for more results
+  k = (k+ 5);
+
   //clear the div
  
   $("#petfinderInfo").empty();
@@ -471,10 +474,11 @@ function petFinderMore() {
   
 }
 //a click to more button add more results
+$(document).on("click", "#more", petFinderMore);
 $("#more").on("click", function(event) {
   //increases the k value by 5 giving 5 more results
   k = (k+ 5);
-  console.log("button works")
+  console.log("button works");
   petFinderMore();
 });
 
