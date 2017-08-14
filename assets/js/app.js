@@ -405,7 +405,7 @@ function petFinderMore() {
               photo = response.petfinder.pets.pet[i].media.photos.photo[3].$t;  
             }
             
-            var pPhoto = $("<p>").html("<img src=" + photo +">");
+            var pPhoto = $("<p>").html("<img class='pet-image' src=" + photo + ">");
             infoDiv.append(pPhoto);
 
             //Varifying a proper name path in the returned object
@@ -475,12 +475,12 @@ function petFinderMore() {
 }
 //a click to more button add more results
 $(document).on("click", "#more", petFinderMore);
-$("#more").on("click", function(event) {
-  //increases the k value by 5 giving 5 more results
-  k = (k+ 5);
-  console.log("button works");
-  petFinderMore();
-});
+// $("#more").on("click", function(event) {
+//   //increases the k value by 5 giving 5 more results
+//   k = (k+ 5);
+//   console.log("button works");
+//   petFinderMore();
+// });
 
 $("#search").on("click", function(event) {
   petFinder();
