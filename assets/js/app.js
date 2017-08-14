@@ -171,7 +171,7 @@ function addMoreButton() {
 
   a.text("More")
 
-  $("#moreButton").append(a)
+  $("#moreButton").html(a)
   
 }
 
