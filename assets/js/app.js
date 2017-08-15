@@ -162,7 +162,7 @@ $("#breedNames").on("change", function() {
 //<a class="btn waves-effect waves-light z-depth-1" type="submit" id="more">More</a>
 function addMoreButton() {
   var a = $("<a>"); 
-
+//adds the classes to the button below then attributes and text
   a.addClass("btn waves-effect waves-light z-depth-1 moreButtonClick");
 
   a.attr("type", "submit");
@@ -170,7 +170,7 @@ function addMoreButton() {
   a.attr("id", "more");
 
   a.text("More")
-
+//adds the button to the html
   $("#moreButton").html(a)
   
 }
@@ -223,7 +223,8 @@ function petFinder() {
         }).done(function(response) {
 
           console.log(response);
-
+          //this checks to make sure a valid zip was entered by checking
+          //to see if the object = "100" if not it equals "203"
           if (response.petfinder.header.status.code.$t == "100") {
             
           
@@ -323,17 +324,21 @@ function petFinder() {
             $("#petfinderInfo").append(infoDiv);
 
             $("#zip").val("");
-
+            //adds the more button
             addMoreButton();
+
+            //clear the div that has jonas after the click
+            clearJonas();
            }
           }else {
+            //if zip is incorrect or other issue opens error modal
             $('#modal4').modal('open');
             // $("#petfinderInfo").html("<h3 class='center-align'>Error</h3>");
             $("#zip").val("");
           }
+          //if ajax fails clears zip input and opens error modal
         }).fail(function (err) {
           $('#modal4').modal('open');
-          // $("#petfinderInfo").html("<h3 class='center-align'>Error!</h3>");
           $("#zip").val("");
     });
     };
@@ -489,13 +494,8 @@ function petFinderMore() {
 }
 //a click to more button add more results
 $(document).on("click", "#more", petFinderMore);
-// $("#more").on("click", function(event) {
-//   //increases the k value by 5 giving 5 more results
-//   k = (k+ 5);
-//   console.log("button works");
-//   petFinderMore();
-// });
 
+//clicking the search button will run the petFinder function
 $("#search").on("click", function(event) {
   petFinder();
 });
@@ -565,4 +565,9 @@ $( document ).ready(function(){
       // $("#comment-display").append(sv.comment);
       console.log(sv);
     });
+    //this function will clear the bottom div to make the more button more visible
+    function clearJonas() {
+      $(".jonas").empty();
+      
+    }
 
