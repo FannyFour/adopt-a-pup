@@ -327,12 +327,14 @@ function petFinder() {
             addMoreButton();
            }
           }else {
-            $("#petfinderInfo").html("<h3 class='center-align'>Error</h3>");
-            $("#zip").val("Re-Enter Zip");
+            $('#modal4').modal('open');
+            // $("#petfinderInfo").html("<h3 class='center-align'>Error</h3>");
+            $("#zip").val("");
           }
         }).fail(function (err) {
-        $("#petfinderInfo").html("<h1 class='center-align'>Error!</h1>");
-        $("#zip").val("Re-Enter Zip");
+          $('#modal4').modal('open');
+          // $("#petfinderInfo").html("<h3 class='center-align'>Error!</h3>");
+          $("#zip").val("");
     });
     };
   
