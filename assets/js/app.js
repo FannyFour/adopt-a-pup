@@ -224,6 +224,10 @@ function petFinder() {
 
           console.log(response);
 
+          if (response.petfinder.header.status.code.$t == "100") {
+            
+          
+
           for (var i = 0; i < k; i++) {
           //   var defaults = {
           //     email: {
@@ -243,7 +247,8 @@ function petFinder() {
             infoDiv.addClass("z-depth-5 flow-text");
             
             //Varifying a proper photo path in the returned object
-            var photo;
+              
+            
             if (!response.petfinder.pets.pet[i].media ||
                 !response.petfinder.pets.pet[i].media.photos ||
                 !response.petfinder.pets.pet[i].media.photos.photo ||
@@ -319,12 +324,19 @@ function petFinder() {
 
             $("#zip").val("");
 
-            
-
+            addMoreButton();
            }
-        });
+          }else {
+            $("#petfinderInfo").html("<h3 class='center-align'>Error</h3>");
+            $("#zip").val("Re-Enter Zip");
+          }
+        }).fail(function (err) {
+        $("#petfinderInfo").html("<h1 class='center-align'>Error!</h1>");
+        $("#zip").val("Re-Enter Zip");
+    });
     };
-  addMoreButton();
+  
+    
 }
 //this function will populate more results to what ever the k value is 
 function petFinderMore() {
