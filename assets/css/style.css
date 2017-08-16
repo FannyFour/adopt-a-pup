@@ -66,3 +66,11 @@ h6 {
 .pet-image {
     border: 6px solid #80deea;
 }
+
+#modal3 {
+  max-height: 90%;
+}
+
+#modal4 {
+  max-height: 80%;
+}
